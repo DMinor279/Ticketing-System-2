@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Edit Application</h2>
+    <form method="POST">
+        <input name="company" placeholder="Company" value="{{ application.company }}" required><br>
+        <input name="role" placeholder="Role" value="{{ application.role }}" required><br>
+
+        <select name="status">
+        <option value="Applied" {% if application.status == 'Applied' %}selected{% endif %}>Applied</option>
+        <option value="Interview" {% if application.status == 'Interview' %}selected{% endif %}>Interview</option>
+        <option value="Rejected" {% if application.status == 'Rejected' %}selected{% endif %}>Rejected</option>
+        <option value="Offer" {% if application.status == 'Offer' %}selected{% endif %}>Offer</option>
+        </select><br>
+
+        <input type="date" name="deadline" value="{{ application.deadline }}" required><br>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
